@@ -21,5 +21,12 @@ triggers {
 		   steps {
 		sh 'cp target/CICD.war 	/home/ishika/Documents/devops_software/apache-tomcat-9.0.85/webapps'
 			}}	
+		stage('slack-notification'){
+		   steps {
+		     
+		     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#devops', color: 'good', message: 'This is for test', teamDomain: 'student', tokenCredentialId: 'slacktest'
+		     }}	
+}}
+
 }}
 
